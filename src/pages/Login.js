@@ -52,9 +52,9 @@ function Login() {
     }
     return (
         <div style={{ width: "100%", textAlign: "center" }}>
-            <div style={{ width: "100%", textAlign: "left"}}>
+            {/* <div style={{ width: "100%", textAlign: "left"}}>
                 <Button style={{ height: '30px', color: '#585858', textShadow: '0 0 0.8px #afafaf ' }} variant="contained" onClick={() => history.push("/Recado")}>Enviar Recado</Button>
-            </div>
+            </div> */}
             <div style={{ width: "100%" }}>
                 <img src={logoPrn} alt="Advocacia" style={{ 'marginTop': '10px', 'marginLeft': '10px', 'marginRight': '10px', 'width': '400px' }} />
             </div>
@@ -70,7 +70,7 @@ function Login() {
             <Grid item sm={12} xs={12} style={{ 'marginTop': '10px' }}>
                 <Checkbox checked={lembreme} onChange={(e) => setLembreme(e.target.checked)} inputProps={{ 'aria-label': 'primary checkbox' }} /> Lembre-me
                 <br/>
-                <Button onClick={() => history.push("/criarUser")} variant="contained" id="logar" style={{ marginLeft: '20px', marginBottom: "15px", color: '#585858', textShadow:'0 0 0.8px #afafaf ' }}>Cadastre-se</Button>
+                {/* <Button onClick={() => history.push("/criarUser")} variant="contained" id="logar" style={{ marginLeft: '20px', marginBottom: "15px", color: '#585858', textShadow:'0 0 0.8px #afafaf ' }}>Cadastre-se</Button> */}
                 <Button onClick={() => login()} variant="contained" color="primary" id="logar" style={{ marginLeft: '20px', marginBottom: "15px", backgroundColor: "#0c66ab", textShadow: '0 0 4px  black' }}>Entrar</Button>
 
             </Grid>

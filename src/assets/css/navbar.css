@@ -1,0 +1,85 @@
+.navmenu {
+    height: 89vh;
+    width: 200px;
+    margin-right: 10px;
+    background-color: #035692;
+    margin-left: -8px;
+    color: white;
+    float: left;
+    position: relative;
+}
+
+.navheader {
+    font-family: DejaVu Sans Mono, monospace;
+    font-size: 11px;
+    width: 100%;
+    height: 80px;
+    text-align: left;
+    position: relative;
+    top: 0;
+    display: block;
+    background-color: white;
+}
+
+.spnimgLogo {
+    width: 240px;
+    height: 100%;
+    float: left;
+}
+
+.spnimgEscrita {
+    width: 40%;
+    height: 100%;
+    float: left;
+}
+
+.imgLogo {
+    margin-right: 10px;
+    max-width: 20em;
+    border-right: 1px solid #f1f1f1;
+}
+
+.imgEscrita {
+    margin-right: 10px;
+    max-width: 20em;
+}
+
+.btnSair {
+    height: 30px !important;
+    background-color: red !important;
+    color: white !important;
+}
+
+.spnbtnSair {
+    margin-Top: 20px;
+    height: 100%;
+    float: right;
+}
+
+@media (max-width: 715px) {
+    .navmenu {
+        display: none;
+        left: -100%;
+        top: -100%;
+        transition: 350ms;
+    }
+    .spnimgLogo {
+        display: none;
+        left: -100%;
+        top: -100%;
+        transition: 350ms;
+    }
+    .spnbtnSair {
+        display: none;
+        left: -100%;
+        top: -100%;
+        transition: 350ms;
+    }
+    .spnimgEscrita {
+        text-align: center;
+        justify-content: center;
+        width: 100%;
+        border-bottom: 3px solid #035692;
+        margin-bottom: 30px;
+    }
+}

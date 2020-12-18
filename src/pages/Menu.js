@@ -12,6 +12,7 @@ import ExcluirCasos from './screen/ExcluirCasos'
 import ListarCasos from './screen/ListarCasos'
 import ListarRecados from './screen/ListarRecados'
 import Header from '../pages/Header'
+import '../assets/css/navbar.css'
 // #f0f5f9
 
 export default function Menu() {
@@ -26,26 +27,13 @@ export default function Menu() {
         <>
             <Header />
             <div style={{ width: '100%', display: 'block' }}>
-                <div style={{
-                    height: '89vh',
-                    width: '200px',
-                    marginRight: '10px',
-                    backgroundColor: '#035692',
-                    marginLeft: '-8px',
-                    color: 'white',
-                    float: 'left'
-                }}>
+                <div className="navmenu">
                     <div style={{ backgroundColor: '#035692', height: '20px' }}></div>
                     <MenuItem style={itensMenu} onClick={() => setScreen(0)} >Pagina Inicial</MenuItem>
-                    {/* <div style={{ 'height': '10px' }}><hr /></div>
-
-                <MenuItem onClick={() => setScreen(4)}>Recados</MenuItem>
-                <div style={{ 'height': '10px' }}><hr /></div> */}
                     <MenuItem style={itensMenu} onClick={() => setScreen(1)}>Incluir Caso</MenuItem>
                     <MenuItem style={itensMenu} onClick={() => setScreen(2)}>Excluir Caso</MenuItem>
                     <MenuItem style={itensMenu} onClick={() => setScreen(3)}>Listar Casos</MenuItem>
                     <div style={{ 'height': '150px' }}></div>
-                    {/* <Button onClick={logoff} style={{ 'height': '30px' }} variant="contained" color="primary" startIcon={<ExitToAppIcon />}>Sair</Button> */}
 
                 </div>
                 <div style={{ textAlign: 'center', float: 'left' }}>

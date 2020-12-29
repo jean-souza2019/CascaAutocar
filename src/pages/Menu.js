@@ -7,8 +7,13 @@ import Firebase from '../services/FirebaseConnect'
 import logoPrn from '../assets/img/logoPrn.png'
 
 import IncluirCaso from './screen/IncluirCaso'
-import ExcluirCasos from './screen/ExcluirCasos'
 import ListarCasos from './screen/ListarCasos'
+import ExcluirCasos from './screen/ExcluirCasos'
+
+import ListarClientes from './screen/ListarClientes'
+import IncluirCliente from './screen/IncluirCliente'
+
+
 import ListarRecados from './screen/ListarRecados'
 import Header from './Header'
 
@@ -46,7 +51,7 @@ export default function Menu() {
                             
                             <MenuItem onClick={() => setScreen(1)}>Ordens</MenuItem>
                             <MenuItem onClick={() => setScreen(2)}>Solicitações</MenuItem>
-                            <MenuItem onClick={() => setScreen(3)}>Clientes</MenuItem>
+                            <MenuItem onClick={() => setScreen(5)}>Clientes</MenuItem>
                             <MenuItem onClick={() => setScreen(4)}>Mapa</MenuItem>
 
 
@@ -87,6 +92,9 @@ export default function Menu() {
                         }
                         {screen === 4&&
                             <ListarRecados setScreen={setScreen} />
+                        }
+                        {screen === 5&&
+                            <ListarClientes setScreen={setScreen} />
                         }
 
                     </div>

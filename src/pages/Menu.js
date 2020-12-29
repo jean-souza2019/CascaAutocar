@@ -10,7 +10,7 @@ import IncluirCaso from './screen/IncluirCaso'
 import ExcluirCasos from './screen/ExcluirCasos'
 import ListarCasos from './screen/ListarCasos'
 import ListarRecados from './screen/ListarRecados'
-
+import Header from './Header'
 
 export default function Menu() {
     let history = useHistory();
@@ -31,6 +31,7 @@ export default function Menu() {
 
     return (
         <div>
+            <Header />
             <Grid container spacing={1}>
                 <Grid item sm={10} xs={12}>
 
@@ -43,13 +44,17 @@ export default function Menu() {
                             <MenuItem onClick={() => setScreen(0)} >Pagina Inicial</MenuItem>
                             <div style={{ 'height': '10px' }}><hr/></div>
                             
-                            <MenuItem onClick={() => setScreen(4)}>Recados</MenuItem>
-                            <div style={{ 'height': '10px' }}><hr/></div>
-                            <MenuItem onClick={() => setScreen(1)}>Incluir Caso</MenuItem>
-                            <MenuItem onClick={() => setScreen(2)}>Excluir Caso</MenuItem>
-                            <MenuItem onClick={() => setScreen(3)}>Listar Casos</MenuItem>
-                            <div style={{ 'height': '150px' }}></div>
-                            <MenuItem><Button onClick={logoff} style={{ 'height': '30px' }} variant="contained" color="primary" startIcon={<ExitToAppIcon />}>Sair</Button></MenuItem>
+                            <MenuItem onClick={() => setScreen(1)}>Ordens</MenuItem>
+                            <MenuItem onClick={() => setScreen(2)}>Solicitações</MenuItem>
+                            <MenuItem onClick={() => setScreen(3)}>Clientes</MenuItem>
+                            <MenuItem onClick={() => setScreen(4)}>Mapa</MenuItem>
+
+
+                            <div style={{ 'height': '150px' }}></div>                          
+                            {/* <div style={{ 'height': '10px' }}><hr/></div> */}
+                            <MenuItem onClick={() => setScreen(4)}>Lembretes</MenuItem>
+                            {/* <div style={{ 'height': '10px' }}><hr/></div> */}
+                            {/* <MenuItem><Button onClick={logoff} style={{ 'height': '30px' }} variant="contained" color="primary" startIcon={<ExitToAppIcon />}>Sair</Button></MenuItem> */}
                         </MenuList>
                     </Paper>
                 </div>
@@ -68,10 +73,6 @@ export default function Menu() {
                                         Seja Bem Vindo
                                     </span>
                                     <hr/>
-                                <div style={{'marginTop':'20px', 'fontSize': '20px', 'fontFamily': 'DejaVu Sans Mono, monospace', 'color': 'darkgray' }}>
-
-                                    Selecione a opção desejada ao lado
-                                    </div>
                                 </div>
                             </>
                         }

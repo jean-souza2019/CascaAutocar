@@ -1,6 +1,7 @@
 import React, { useState, useLayoutEffect } from 'react'
-import { Grid, Paper, } from '@material-ui/core';
+import { Grid, Paper, Button } from '@material-ui/core';
 // import AddCircleIcon from '@material-ui/icons/AddCircle';
+
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -9,9 +10,13 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Firebase from '../../services/FirebaseConnect'
 
+import CriarCliente from './CriarCliente'
 
 
 
+// CSS
+
+import '../../assets/css/client.css'
 
 
 
@@ -19,6 +24,8 @@ import Firebase from '../../services/FirebaseConnect'
 export default function ListarClientes(props) {
 
     const [lista, setLista] = useState([])
+
+    const [screen, setScreen] = useState(0)
 
     useLayoutEffect(() => {
 
@@ -44,8 +51,13 @@ export default function ListarClientes(props) {
     return (
         <Grid container spacing={1} >
             <Grid item sm={12} xs={12}>
-                <div style={{ marginTop: '10px', marginBottom: '20px', 'fontSize': '30px', 'fontFamily': 'DejaVu Sans Mono, monospace', 'color': '#3f51b5', textShadow: '0 0 1px #242c58' }}>
+                <div style={{ marginTop: '10px', marginBottom: '10px',fontSize: '30px', fontFamily: 'DejaVu Sans Mono, monospace', color: '#3f51b5', textShadow: '0 0 1px #242c58' }}>
                     Clientes Cadastrados
+                </div>
+                <div style={{ fontSize: '30px', fontFamily: 'DejaVu Sans Mono, monospace', color: '#3f51b5', textAlign: 'right' }}>
+                    <Button className="BtnCli" onClick={() => setScreen(5)} variant="contained" >Criar Novo</Button>
+                    <Button className="BtnCli" variant="contained" >Editar</Button>
+
                 </div>
             </Grid>
             <Grid item sm={12} xs={12}>
@@ -81,6 +93,11 @@ export default function ListarClientes(props) {
                     </Table>
                 </TableContainer>
             </Grid>
+            {
+screen === 5 &&
+<CriarCliente setScreen={setScreen} />
+}
         </Grid>
+
     )
 }

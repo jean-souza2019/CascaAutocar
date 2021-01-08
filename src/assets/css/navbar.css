@@ -71,6 +71,10 @@
     color: #0361a5 !important;
 }
 
+.BtnCli {
+    text-align: right;
+}
+
 @media (max-width: 715px) {
     .navmenu {
         display: none;

@@ -13,6 +13,8 @@ import IncluirCaso from './screen/IncluirCaso'
 import ExcluirCasos from './screen/ExcluirCasos'
 import ListarCasos from './screen/ListarCasos'
 import ListarRecados from './screen/ListarRecados'
+import CriarCliente from './screen/CriarCliente'
+import ListarClientes from './screen/ListarClientes'
 import Header from '../pages/Header'
 import '../assets/css/navbar.css'
 // #f0f5f9
@@ -64,7 +66,10 @@ export default function Menu() {
                         <ListarCasos setScreen={setScreen} />
                     }
                     {screen === 4 &&
-                        <ListarRecados setScreen={setScreen} />
+                        <ListarClientes setScreen={setScreen} />
+                    }
+                    {screen === 5 &&
+                        <CriarCliente setScreen={setScreen} />
                     }
 
                 </span>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from '@material-ui/core';
-import React, { useState, useLayoutEffect } from 'react'
-import { Button, Grid, TextField, Checkbox } from '@material-ui/core';
+// import { useState, useLayoutEffect } from 'react'
+// import { Button, Grid, TextField, Checkbox } from '@material-ui/core';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Firebase from '../services/FirebaseConnect'
 import { useHistory } from "react-router-dom";

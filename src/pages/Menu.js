@@ -7,7 +7,11 @@ import { MenuItem, Button } from '@material-ui/core';
 // import Firebase from '../services/FirebaseConnect'
 // import logoPrn from '../assets/img/logoPrn.png'
 
-import PeopleRoundedIco from '@material-ui/icons/PeopleRounded';
+import ShoppingCart from '@material-ui/icons/ShoppingCart';
+import Home from '@material-ui/icons/Home';
+import Assignment from '@material-ui/icons/Assignment';
+import Contacts from '@material-ui/icons/Contacts';
+import EventNote from '@material-ui/icons/EventNote';
 
 import IncluirCaso from './screen/IncluirCaso'
 import ExcluirCasos from './screen/ExcluirCasos'
@@ -33,11 +37,11 @@ export default function Menu() {
             <div style={{ width: '100%', display: 'block' }}>
                 <span className="navmenu">
                     <div style={{ backgroundColor: '#035692', height: '20px' }}></div>
-                    <Button onClick={() => setScreen(0)} className="BtnMenu" variant="contained" startIcon={<PeopleRoundedIco />}>Inicio</Button>
-                    <Button onClick={() => setScreen(1)} className="BtnMenu" variant="contained" startIcon={<PeopleRoundedIco />}>Solicitação </Button>
-                    <Button onClick={() => setScreen(2)} className="BtnMenu" variant="contained" startIcon={<PeopleRoundedIco />}>Ordem</Button>
-                    <Button onClick={() => setScreen(3)} className="BtnMenu" variant="contained" startIcon={<PeopleRoundedIco />}>Estoque</Button>
-                    <Button onClick={() => setScreen(4)} className="BtnMenu" variant="contained" startIcon={<PeopleRoundedIco />}>Clientes</Button>
+                    <Button onClick={() => setScreen(0)} className="BtnMenu" variant="contained" startIcon={<Home />}>Inicio</Button>
+                    <Button onClick={() => setScreen(1)} className="BtnMenu" variant="contained" startIcon={<EventNote />}>Solicitação </Button>
+                    <Button onClick={() => setScreen(2)} className="BtnMenu" variant="contained" startIcon={<Assignment />}>Ordem</Button>
+                    <Button onClick={() => setScreen(3)} className="BtnMenu" variant="contained" startIcon={<ShoppingCart />}>Estoque</Button>
+                    <Button onClick={() => setScreen(4)} className="BtnMenu" variant="contained" startIcon={<Contacts />}>Clientes</Button>
                 </span>
                 <span style={{ textAlign: 'center', float: 'left' }}>
 

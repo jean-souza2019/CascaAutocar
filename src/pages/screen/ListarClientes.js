@@ -1,6 +1,6 @@
 import React, { useState, useLayoutEffect } from 'react'
 import { Grid, Paper, Button } from '@material-ui/core';
-// import AddCircleIcon from '@material-ui/icons/AddCircle';
+import Edit from '@material-ui/icons/Edit';
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -25,7 +25,6 @@ export default function ListarClientes(props) {
 
     const [lista, setLista] = useState([])
 
-    const [screen, setScreen] = useState(0)
 
     useLayoutEffect(() => {
 
@@ -55,8 +54,8 @@ export default function ListarClientes(props) {
                     Clientes Cadastrados
                 </div>
                 <div style={{ fontSize: '30px', fontFamily: 'DejaVu Sans Mono, monospace', color: '#3f51b5', textAlign: 'right' }}>
-                    <Button className="BtnCli" onClick={() => setScreen(5)} variant="contained" >Criar Novo</Button>
-                    <Button className="BtnCli" variant="contained" >Editar</Button>
+                    <Button className="BtnCli" variant="contained" >Criar Novo</Button>
+                    {/* <Button className="BtnCli" variant="contained" >Editar</Button> */}
 
                 </div>
             </Grid>
@@ -72,6 +71,7 @@ export default function ListarClientes(props) {
                                 <TableCell style={{ color: '#fff' }} align="right">Telefone</TableCell>
                                 <TableCell style={{ color: '#fff' }} align="right">E-mail</TableCell>
                                 <TableCell style={{ color: '#fff' }} align="center">Veiculo</TableCell>
+                                <TableCell style={{ color: '#fff' }} align="center">Opção</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -86,6 +86,7 @@ export default function ListarClientes(props) {
                                     <TableCell align="right">{item.telefone}</TableCell>
                                     <TableCell align="right">{item.email}</TableCell>
                                     <TableCell align="right">{item.veiculo}</TableCell>
+                                    <Edit className="btnEdit"/>
                                 </TableRow>
                             }
                             )}
@@ -93,10 +94,7 @@ export default function ListarClientes(props) {
                     </Table>
                 </TableContainer>
             </Grid>
-            {
-screen === 5 &&
-<CriarCliente setScreen={setScreen} />
-}
+            
         </Grid>
 
     )

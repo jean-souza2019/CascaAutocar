@@ -1,3 +1,15 @@
 .BtnCli {
-    margin-left: 5px;
+    margin-left: 5px !important;
+}
+
+.btnEdit {
+    margin-top: 6px;
+    width: 20px !important;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.btnEdit:hover {
+    color: #3f51b5;
+    transform: scale(1.2);
 }

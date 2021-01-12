@@ -15,7 +15,7 @@ import EventNote from '@material-ui/icons/EventNote';
 
 import IncluirCaso from './screen/IncluirCaso'
 import ExcluirCasos from './screen/ExcluirCasos'
-import ListarCasos from './screen/ListarCasos'
+import ListarEstoque from './screen/ListarEstoque'
 import ListarRecados from './screen/ListarRecados'
 import CriarCliente from './screen/CriarCliente'
 import ListarClientes from './screen/ListarClientes'
@@ -38,8 +38,8 @@ export default function Menu() {
                 <span className="navmenu">
                     <div style={{ backgroundColor: '#035692', height: '20px' }}></div>
                     <Button onClick={() => setScreen(0)} className="BtnMenu" variant="contained" startIcon={<Home />}>Inicio</Button>
-                    <Button onClick={() => setScreen(1)} className="BtnMenu" variant="contained" startIcon={<EventNote />}>Solicitação </Button>
-                    <Button onClick={() => setScreen(2)} className="BtnMenu" variant="contained" startIcon={<Assignment />}>Ordem</Button>
+                    <Button onClick={() => setScreen(1)} className="BtnMenu" variant="contained" startIcon={<EventNote />}>Orçamento</Button>
+                    <Button onClick={() => setScreen(2)} className="BtnMenu" variant="contained" startIcon={<Assignment />}>Ordem Serviço</Button>
                     <Button onClick={() => setScreen(3)} className="BtnMenu" variant="contained" startIcon={<ShoppingCart />}>Estoque</Button>
                     <Button onClick={() => setScreen(4)} className="BtnMenu" variant="contained" startIcon={<Contacts />}>Clientes</Button>
                 </span>
@@ -67,7 +67,7 @@ export default function Menu() {
                         <ExcluirCasos setScreen={setScreen} />
                     }
                     {screen === 3 &&
-                        <ListarCasos setScreen={setScreen} />
+                        <ListarEstoque setScreen={setScreen} />
                     }
                     {screen === 4 &&
                         <ListarClientes setScreen={setScreen} />

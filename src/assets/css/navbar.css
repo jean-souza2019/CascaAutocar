@@ -73,6 +73,8 @@
 .BtnMenu:hover {
     background-color: white !important;
     color: #0361a5 !important;
+    width: 205px !important;
+    height: 55px !important;
 }
 
 .BtnCli {

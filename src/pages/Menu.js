@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, makeStyles } from 'react'
 
 import { MenuItem, Button } from '@material-ui/core';
+
+import Avatar from '@material-ui/core/Avatar';
 // import { Button, Grid, Paper, MenuList } from '@material-ui/core';
 // import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 // import { useHistory } from "react-router-dom";
@@ -23,9 +25,18 @@ import Header from '../pages/Header'
 import '../assets/css/navbar.css'
 // #f0f5f9
 
+
 export default function Menu() {
 
+
+
+
+
+
+
+
     const [screen, setScreen] = useState(0)
+
 
 
     let itensMenu = {
@@ -34,19 +45,21 @@ export default function Menu() {
     return (
         <>
             <Header />
-            <div style={{ width: '100%', display: 'block' }}>
+            <div style={{ width: '100%', display: 'block', textAlign: 'center' }}>
                 <span className="navmenu">
-                    <div style={{ backgroundColor: '#035692', height: '20px' }}></div>
+                    <div style={{ marginTop: '20px', width: '100%', textAlign: 'center',float:'left' }}>
+                        {/* <Avatar alt="Leonardo" src="/static/images/avatar/1.jpg" style={{ width: '70px', height: '70px' }} /> */}
+                    </div>
                     <Button onClick={() => setScreen(0)} className="BtnMenu" variant="contained" startIcon={<Home />}>Inicio</Button>
                     <Button onClick={() => setScreen(1)} className="BtnMenu" variant="contained" startIcon={<EventNote />}>Orçamento</Button>
                     <Button onClick={() => setScreen(2)} className="BtnMenu" variant="contained" startIcon={<Assignment />}>Ordem Serviço</Button>
                     <Button onClick={() => setScreen(3)} className="BtnMenu" variant="contained" startIcon={<ShoppingCart />}>Estoque</Button>
                     <Button onClick={() => setScreen(4)} className="BtnMenu" variant="contained" startIcon={<Contacts />}>Clientes</Button>
                 </span>
-                <span style={{ textAlign: 'center', float: 'left', width:'80%' }}>
+                <span style={{ textAlign: 'center', float: 'left', width: '80%' }}>
 
                     {screen === 0 &&
-                    // Main
+                        // Main
                         <Maps setScreen={setScreen} />
 
                     }

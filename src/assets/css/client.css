@@ -1,3 +1,9 @@
+.BtnCli:hover {
+    background-color: #2bc545 !important;
+    /* background-color: #3f51b5 !important; */
+    color: white;
+}
+
 .BtnCli {
     margin-left: 5px !important;
 }

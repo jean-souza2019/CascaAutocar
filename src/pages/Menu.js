@@ -16,7 +16,7 @@ import EventNote from '@material-ui/icons/EventNote';
 import IncluirCaso from './screen/IncluirCaso'
 import ExcluirCasos from './screen/ExcluirCasos'
 import ListarEstoque from './screen/ListarEstoque'
-import ListarRecados from './screen/ListarRecados'
+import Maps from './screen/Maps'
 import CriarCliente from './screen/CriarCliente'
 import ListarClientes from './screen/ListarClientes'
 import Header from '../pages/Header'
@@ -43,23 +43,16 @@ export default function Menu() {
                     <Button onClick={() => setScreen(3)} className="BtnMenu" variant="contained" startIcon={<ShoppingCart />}>Estoque</Button>
                     <Button onClick={() => setScreen(4)} className="BtnMenu" variant="contained" startIcon={<Contacts />}>Clientes</Button>
                 </span>
-                <span style={{ textAlign: 'center', float: 'left' }}>
+                <span style={{ textAlign: 'center', float: 'left', width:'80%' }}>
 
                     {screen === 0 &&
-                        <>
-                            <div style={{ 'fontSize': '4em' }}>
-                                <span style={{ 'fontFamily': 'DejaVu Sans Mono, monospace', 'color': '#ececec', 'textShadow': '0 0 5px #616161 ' }}>
+                    // Main
+                        <Maps setScreen={setScreen} />
 
-                                    Seja Bem Vindo
-                                    </span>
-                                <hr />
-                                <div style={{ 'marginTop': '20px', 'fontSize': '20px', 'fontFamily': 'DejaVu Sans Mono, monospace', 'color': 'darkgray' }}>
-
-                                    Selecione a opção desejada ao lado
-                                    </div>
-                            </div>
-                        </>
                     }
+
+
+
                     {screen === 1 &&
                         <IncluirCaso setScreen={setScreen} />
                     }

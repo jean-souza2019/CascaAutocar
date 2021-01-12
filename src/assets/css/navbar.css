@@ -46,8 +46,12 @@
 
 .btnSair {
     height: 30px !important;
+}
+
+.btnSair:hover {
+    height: 30px !important;
     background-color: red !important;
-    color: white !important;
+    color: black !important;
 }
 
 .spnbtnSair {

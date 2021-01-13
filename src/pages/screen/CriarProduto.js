@@ -11,64 +11,38 @@ import { Grid, Paper } from '@material-ui/core';
 import '../../assets/css/client.css'
 
 
-// import cx from 'classnames';
-// import Header from '../../Main/Header';
-// import Footer from '../../Main/Footer';
-// import SideBar from '../../../components/SideBar';
-
 export default function CriarProduto() {
 
-  const [nome, setNome] = useState("")
-  const [telefone, setTelefone] = useState("")
-  const [cpf, setCpf] = useState("")
-  const [email, setEmail] = useState("")
-  const [cep, setCep] = useState("")
-  const [cidade, setCidade] = useState("")
-  const [bairro, setBairro] = useState("")
-  const [endereco, setEndereco] = useState("")
-  const [veiculo, setVeiculo] = useState("")
-  const [placa, setPlaca] = useState("")
-  const [ano, setAno] = useState("")
+  const [descricao, setDescricao] = useState("")
+  const [enderecamento, setEnderecamento] = useState("")
+  const [quantidade, setQuantidade] = useState("")
+  const [valor, setValor] = useState("")
 
   const limpar = () => {
-    setNome("")
-    setTelefone("")
-    setCpf("")
-    setEmail("")
-    setCep("")
-    setCidade("")
-    setBairro("")
-    setEndereco("")
-    setVeiculo("")
-    setPlaca("")
-    setAno("")
+    setDescricao("")
+    setEnderecamento("")
+    setQuantidade("")
+    setValor("")
   }
 
   const salvarRegistro = () => {
     let objeto = {
-      nome: nome,
-      telefone: telefone,
-      cpf: cpf,
-      email: email,
-      cep: cep,
-      cidade: cidade,
-      bairro: bairro,
-      endereco: endereco,
-      veiculo: veiculo,
-      placa: placa,
-      ano: ano
+      descricao: descricao,
+      enderecamento: enderecamento,
+      quantidade: quantidade,
+      valor: valor
     }
 
     let code = uuidv4()
 
     Firebase
       .database()
-      .ref(`Cadastros/${code}`)
+      .ref(`Estoque/${code}`)
       .set(objeto)
       .then(() => {
         limpar()
-        console.log("Cliente Cadastrado Com Sucesso!")
-        alert("Cliente Cadastrado Com Sucesso!")
+        console.log("Incluido novo item!")
+        alert("Incluido novo item!")
       })
       .catch((erro) => {
         console.log(erro)
@@ -87,20 +61,10 @@ export default function CriarProduto() {
 
       </Grid>
       <Grid item sm={12} xs={12}>
-        <TextField id="INnome" value={nome} onChange={(e) => setNome(e.target.value)} label="Nome" variant="outlined" type="text" size="small" style={{ width: "45%", "margin-bottom": "15px", "margin-left": "15px" }} />
-        <TextField id="INtelefone" value={telefone} onChange={(e) => setTelefone(e.target.value)} label="Telefone" variant="outlined" type="number" placeholder="Ex.: (00) 0000-0000" data-mask="(00)00000-0000" size="small" style={{ width: "45%", "margin-bottom": "15px", "margin-left": "15px" }} />
-        <TextField id="INcpf" value={cpf} onChange={(e) => setCpf(e.target.value)} label="CPF/CNPJ" variant="outlined" type="number" size="small" placeholder="Ex.: 000.000.000-00 / 00.000.000/0000-00" style={{ width: "45%", "margin-bottom": "15px", "margin-left": "15px" }} />
-        <TextField id="INemail" required value={email} onChange={(e) => setEmail(e.target.value)} label="E-mail" variant="outlined" type="email" size="small" style={{ width: "45%", "margin-bottom": "15px", "margin-left": "15px" }} />
-        <TextField id="INcep" value={cep} onChange={(e) => setCep(e.target.value)} label="CEP" variant="outlined" type="number" placeholder="Ex.: 00000-000" size="small" style={{ width: "45%", "margin-bottom": "15px", "margin-left": "15px" }} />
-        <TextField id="INcidade" value={cidade} onChange={(e) => setCidade(e.target.value)} label="Cidade" variant="outlined" type="text" size="small" style={{ width: "45%", "margin-bottom": "15px", "margin-left": "15px" }} />
-        <TextField id="INbairro" value={bairro} onChange={(e) => setBairro(e.target.value)} label="Bairro" variant="outlined" type="text" size="small" style={{ width: "45%", "margin-bottom": "15px", "margin-left": "15px" }} />
-        <TextField id="INedereco" value={endereco} onChange={(e) => setEndereco(e.target.value)} label="Endereço" variant="outlined" type="text" size="small" style={{ width: "45%", "margin-bottom": "15px", "margin-left": "15px" }} />
-        
-        <hr style={{ marginTop: '10px', marginBottom: '25px' }} />
-
-        <TextField id="INveiculo" value={veiculo} onChange={(e) => setVeiculo(e.target.value)} label="Veiculo" variant="outlined" type="text" size="small" style={{ width: "45%", "margin-bottom": "15px", "margin-left": "15px" }} />
-        <TextField id="INplaca" value={placa} onChange={(e) => setPlaca(e.target.value)} label="Placa" variant="outlined" type="text" placeholder="Ex.: AAAA-0000 / AAA0A00" size="small" style={{ width: "45%", "margin-bottom": "15px", "margin-left": "15px" }} />
-        <TextField id="INano" value={ano} onChange={(e) => setAno(e.target.value)} label="Ano/Modelo" variant="outlined" type="text" size="small" style={{ width: "45%", "margin-bottom": "15px", "margin-left": "15px" }} />
+        <TextField id="INdescricao" value={descricao} onChange={(e) => setDescricao(e.target.value)} label="Descrição" variant="outlined" type="text" size="small" style={{ width: "45%", "margin-bottom": "15px", "margin-left": "15px" }} />
+        <TextField id="INenderecamento" value={enderecamento} onChange={(e) => setEnderecamento(e.target.value)} label="Endereçamento" variant="outlined" type="text" size="small" style={{ width: "45%", "margin-bottom": "15px", "margin-left": "15px" }} />
+        <TextField id="INquantidade" value={quantidade} onChange={(e) => setQuantidade(e.target.value)} label="Quantidade" variant="outlined" type="number" size="small"  style={{ width: "30%", "margin-bottom": "15px", "margin-left": "15px" }} />
+        <TextField id="INvalor" required value={valor} onChange={(e) => setValor(e.target.value)} label="Valor/u" variant="outlined" type="number" size="small" style={{ width: "30%", "margin-bottom": "15px", "margin-left": "15px" }} />
 
         <hr style={{ marginTop: '10px', marginBottom: '25px'}}/>
 

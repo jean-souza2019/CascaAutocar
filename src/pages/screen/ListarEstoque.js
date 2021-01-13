@@ -55,7 +55,7 @@ export default function ListarEstoque(props) {
         console.log(item)
         Firebase
             .database()
-            .ref(`/Cadastros/${item.id}`)
+            .ref(`/Estoque/${item.id}`)
             .remove()
     }
     
@@ -63,7 +63,7 @@ export default function ListarEstoque(props) {
         console.log(item)
         Firebase
             .database()
-            .ref(`/Cadastros/${item.id}`)
+            .ref(`/Estoque/${item.id}`)
             .set(data)
     }
 
@@ -95,18 +95,19 @@ export default function ListarEstoque(props) {
                                         <TableCell style={{ color: '#fff' }} align="center">Endereçamento</TableCell>
                                         <TableCell style={{ color: '#fff' }} align="center">Quantidade</TableCell>
                                         <TableCell style={{ color: '#fff' }} align="center">Valor</TableCell>
+                                        <TableCell style={{ color: '#fff' }} align="center">Opções</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
                                     {lista.map((item, key) => {
                                         return <TableRow key={key}>
                                             <TableCell component="th" scope="row">
-                                                {item.nome}
+                                                {item.descricao}
                                             </TableCell>
-                                            <TableCell align="right">{item.cpf}</TableCell>
-                                            <TableCell align="right">{item.cidade}</TableCell>
-                                            <TableCell align="right">{item.bairro}</TableCell>
-                                            <Edit className="btnEdit" onClick={() => setScreen(2)} />
+                                            <TableCell align="center">{item.enderecamento}</TableCell>
+                                            <TableCell align="center">{item.quantidade}</TableCell>
+                                            <TableCell align="center">{item.valor}</TableCell>
+                                            <Edit className="btnEdit" />
                                             <DeleteForever className="btnDel" onClick={() => Excluir(item)}/>
                                         </TableRow>
                                     }

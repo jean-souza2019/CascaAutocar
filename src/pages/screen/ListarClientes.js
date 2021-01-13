@@ -1,6 +1,7 @@
 import React, { useState, useLayoutEffect } from 'react'
 import { Grid, Paper, Button } from '@material-ui/core';
 import Edit from '@material-ui/icons/Edit';
+import DeleteForever from '@material-ui/icons/DeleteForever';
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -11,6 +12,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Firebase from '../../services/FirebaseConnect'
 
 import CriarCliente from './CriarCliente'
+import EditarCliente from './EditarCliente'
 
 
 
@@ -48,7 +50,24 @@ export default function ListarClientes(props) {
     }, [])
 
 
+
+    const Excluir = (item) => {
+        console.log(item)
+        Firebase
+            .database()
+            .ref(`/Cadastros/${item.id}`)
+            .remove()
+    }
     
+    const Editar = (item,data) => {
+        console.log(item)
+        Firebase
+            .database()
+            .ref(`/Cadastros/${item.id}`)
+            .set(data)
+    }
+
+
 
 
 
@@ -59,7 +78,7 @@ export default function ListarClientes(props) {
                 <>
                 <Grid container spacing={1} >
                     <Grid item sm={12} xs={12}>
-                        <div style={{ marginTop: '10px', marginBottom: '10px', fontSize: '30px', fontFamily: 'DejaVu Sans Mono, monospace', color: '#3f51b5', textShadow: '0 0 1px #242c58' }}>
+                        <div className="corPadrao1" style={{ marginTop: '10px', marginBottom: '10px', fontSize: '30px', fontFamily: 'DejaVu Sans Mono, monospace', color: '#3f51b5', textShadow: '0 0 1px #242c58' }}>
                             Clientes Cadastrados
                         </div>
                         <div style={{ fontSize: '30px', fontFamily: 'DejaVu Sans Mono, monospace', color: '#3f51b5', textAlign: 'right' }}>
@@ -71,15 +90,15 @@ export default function ListarClientes(props) {
                         <TableContainer component={Paper}>
                             <Table aria-label="simple table">
                                 <TableHead>
-                                    <TableRow style={{ backgroundColor: '#3f51b5' }}>
+                                    <TableRow className="corPadrao">
                                         <TableCell style={{ color: '#fff' }}>Nome</TableCell>
-                                        <TableCell style={{ color: '#fff' }} align="right">CPF</TableCell>
-                                        <TableCell style={{ color: '#fff' }} align="right">Cidade</TableCell>
-                                        <TableCell style={{ color: '#fff' }} align="right">Bairro</TableCell>
-                                        <TableCell style={{ color: '#fff' }} align="right">Telefone</TableCell>
-                                        <TableCell style={{ color: '#fff' }} align="right">E-mail</TableCell>
+                                        <TableCell style={{ color: '#fff' }} align="center">CPF</TableCell>
+                                        <TableCell style={{ color: '#fff' }} align="center">Cidade</TableCell>
+                                        <TableCell style={{ color: '#fff' }} align="center">Bairro</TableCell>
+                                        <TableCell style={{ color: '#fff' }} align="center">Telefone</TableCell>
+                                        <TableCell style={{ color: '#fff' }} align="center">E-mail</TableCell>
                                         <TableCell style={{ color: '#fff' }} align="center">Veiculo</TableCell>
-                                        <TableCell style={{ color: '#fff' }} align="center">Opção</TableCell>
+                                        <TableCell style={{ color: '#fff' }} align="center">Opções</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -94,7 +113,8 @@ export default function ListarClientes(props) {
                                             <TableCell align="right">{item.telefone}</TableCell>
                                             <TableCell align="right">{item.email}</TableCell>
                                             <TableCell align="right">{item.veiculo}</TableCell>
-                                            <Edit className="btnEdit" />
+                                            <Edit className="btnEdit" onClick={() => setScreen(2)} />
+                                            <DeleteForever className="btnDel" onClick={() => Excluir(item)}/>
                                         </TableRow>
                                     }
                                     )}
@@ -110,6 +130,10 @@ export default function ListarClientes(props) {
             {screen === 1 &&
                 <CriarCliente setScreen={setScreen} />
             }
+            {screen === 2 &&
+                <EditarCliente setScreen={setScreen} />
+            }
+
 
         </span>
 

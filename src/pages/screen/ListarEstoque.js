@@ -1,6 +1,8 @@
 import React, { useState, useLayoutEffect } from 'react'
-import { Grid, Paper, } from '@material-ui/core';
-// import AddCircleIcon from '@material-ui/icons/AddCircle';
+import { Grid, Paper, Button } from '@material-ui/core';
+import Edit from '@material-ui/icons/Edit';
+import DeleteForever from '@material-ui/icons/DeleteForever';
+
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -9,16 +11,30 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Firebase from '../../services/FirebaseConnect'
 
+import CriarProduto from './CriarProduto'
+// import EditarProduto from './EditarProduto'
+
+
+
+// CSS
+
+import '../../assets/css/client.css'
+
+
+
+
 export default function ListarEstoque(props) {
 
     const [lista, setLista] = useState([])
+    const [screen, setScreen] = useState(0)
+
 
     useLayoutEffect(() => {
 
 
         Firebase
             .database()
-            .ref(`/estoque`)
+            .ref(`/Estoque`)
             .on('value', snapchot => {
                 if (snapchot.val()) {
                     // converter objetos em listas
@@ -34,42 +50,87 @@ export default function ListarEstoque(props) {
     }, [])
 
 
+
+    const Excluir = (item) => {
+        console.log(item)
+        Firebase
+            .database()
+            .ref(`/Cadastros/${item.id}`)
+            .remove()
+    }
+    
+    const Editar = (item,data) => {
+        console.log(item)
+        Firebase
+            .database()
+            .ref(`/Cadastros/${item.id}`)
+            .set(data)
+    }
+
+
+
+
+
+
     return (
-        <Grid container spacing={1} >
-            <Grid item sm={12} xs={12}>
-                <div style={{ marginTop: '10px', marginBottom: '20px', 'fontSize': '30px', 'fontFamily': 'DejaVu Sans Mono, monospace', 'color': '#3f51b5', textShadow: '0 0 1px #242c58' }}>
-                    Estoque
-                </div>
-            </Grid>
-            <Grid item sm={12} xs={12}>
-                <TableContainer component={Paper}>
-                    <Table aria-label="simple table">
-                        <TableHead>
-                            <TableRow style={{ backgroundColor: '#3f51b5' }}>
-                                <TableCell style={{ color: '#fff' }}>ID</TableCell>
-                                <TableCell style={{ color: '#fff' }} align="right">Descrição</TableCell>
-                                <TableCell style={{ color: '#fff' }} align="right">Localização</TableCell>
-                                <TableCell style={{ color: '#fff' }} align="right">Quantidade</TableCell>
-                                <TableCell style={{ color: '#fff' }} align="right">Obs</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {lista.map((item, key) => {
-                                return <TableRow key={key}>
-                                    <TableCell component="th" scope="row">
-                                        {item.id}
-                                    </TableCell>
-                                    <TableCell align="right">{item.descricao}</TableCell>
-                                    <TableCell align="right">{item.localizacao}</TableCell>
-                                    <TableCell align="right">{item.quantidade}</TableCell>
-                                    <TableCell align="right">{item.obs}</TableCell>
-                                </TableRow>
-                            }
-                            )}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-            </Grid>
-        </Grid>
+        <span>
+            {screen === 0 &&
+                <>
+                <Grid container spacing={1} >
+                    <Grid item sm={12} xs={12}>
+                        <div className="corPadrao1" style={{ marginTop: '10px', marginBottom: '10px', fontSize: '30px', fontFamily: 'DejaVu Sans Mono, monospace', color: '#3f51b5', textShadow: '0 0 1px #242c58' }}>
+                            Estoque
+                        </div>
+                        <div style={{ fontSize: '30px', fontFamily: 'DejaVu Sans Mono, monospace', color: '#3f51b5', textAlign: 'right' }}>
+                            <Button className="BtnCli" onClick={() => setScreen(1)} variant="contained">Adicionar</Button>
+
+                        </div>
+                    </Grid>
+                    <Grid item sm={12} xs={12}>
+                        <TableContainer component={Paper}>
+                            <Table aria-label="simple table">
+                                <TableHead>
+                                    <TableRow className="corPadrao">
+                                        <TableCell style={{ color: '#fff' }}>Descrição</TableCell>
+                                        <TableCell style={{ color: '#fff' }} align="center">Endereçamento</TableCell>
+                                        <TableCell style={{ color: '#fff' }} align="center">Quantidade</TableCell>
+                                        <TableCell style={{ color: '#fff' }} align="center">Valor</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {lista.map((item, key) => {
+                                        return <TableRow key={key}>
+                                            <TableCell component="th" scope="row">
+                                                {item.nome}
+                                            </TableCell>
+                                            <TableCell align="right">{item.cpf}</TableCell>
+                                            <TableCell align="right">{item.cidade}</TableCell>
+                                            <TableCell align="right">{item.bairro}</TableCell>
+                                            <Edit className="btnEdit" onClick={() => setScreen(2)} />
+                                            <DeleteForever className="btnDel" onClick={() => Excluir(item)}/>
+                                        </TableRow>
+                                    }
+                                    )}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    </Grid>
+
+                </Grid>
+                </>
+            }
+
+            {screen === 1 &&
+                <CriarProduto setScreen={setScreen} />
+            }
+            {/* {screen === 2 &&
+                <EditarProduto setScreen={setScreen} />
+            } */}
+
+
+        </span>
+
+
+
     )
 }

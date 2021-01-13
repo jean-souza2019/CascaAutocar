@@ -15,29 +15,17 @@ import Assignment from '@material-ui/icons/Assignment';
 import Contacts from '@material-ui/icons/Contacts';
 import EventNote from '@material-ui/icons/EventNote';
 
+import Maps from './screen/Maps'
 import IncluirCaso from './screen/IncluirCaso'
 import ExcluirCasos from './screen/ExcluirCasos'
 import ListarEstoque from './screen/ListarEstoque'
-import Maps from './screen/Maps'
-import CriarCliente from './screen/CriarCliente'
 import ListarClientes from './screen/ListarClientes'
 import Header from '../pages/Header'
 import '../assets/css/navbar.css'
-// #f0f5f9
 
 
 export default function Menu() {
-
-
-
-
-
-
-
-
     const [screen, setScreen] = useState(0)
-
-
 
     let itensMenu = {
         height: '50px'
@@ -77,9 +65,6 @@ export default function Menu() {
                     }
                     {screen === 4 &&
                         <ListarClientes setScreen={setScreen} />
-                    }
-                    {screen === 5 &&
-                        <CriarCliente setScreen={setScreen} />
                     }
 
                 </span>

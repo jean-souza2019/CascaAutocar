@@ -16,7 +16,7 @@ import '../../assets/css/client.css'
 // import Footer from '../../Main/Footer';
 // import SideBar from '../../../components/SideBar';
 
-export default function IncluirEstoque() {
+export default function CriarProduto() {
 
   const [nome, setNome] = useState("")
   const [telefone, setTelefone] = useState("")
@@ -82,7 +82,7 @@ export default function IncluirEstoque() {
     <span>
       <Grid item sm={12} xs={12}>
         <div style={{ marginTop: '10px', marginBottom: '30px', fontSize: '30px', fontFamily: 'DejaVu Sans Mono, monospace', color: '#3f51b5', textShadow: '0 0 1px #242c58' }}>
-          Incluir Estoque
+          Cadastrar Produto
         </div>
 
       </Grid>

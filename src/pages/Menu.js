@@ -20,6 +20,7 @@ import IncluirCaso from './screen/IncluirCaso'
 import ExcluirCasos from './screen/ExcluirCasos'
 import ListarEstoque from './screen/ListarEstoque'
 import ListarClientes from './screen/ListarClientes'
+import Tabela from './screen/tabela'
 import Header from '../pages/Header'
 import '../assets/css/navbar.css'
 
@@ -43,6 +44,7 @@ export default function Menu() {
                     <Button onClick={() => setScreen(2)} className="BtnMenu" variant="contained" startIcon={<Assignment />}>Ordem Serviço</Button>
                     <Button onClick={() => setScreen(3)} className="BtnMenu" variant="contained" startIcon={<ShoppingCart />}>Estoque</Button>
                     <Button onClick={() => setScreen(4)} className="BtnMenu" variant="contained" startIcon={<Contacts />}>Clientes</Button>
+                    <Button onClick={() => setScreen(5)} className="BtnMenu" variant="contained" startIcon={<Contacts />}>Tabela</Button>
                 </span>
                 <span style={{ textAlign: 'center', float: 'left', width: '80%' }}>
 
@@ -65,6 +67,8 @@ export default function Menu() {
                     }
                     {screen === 4 &&
                         <ListarClientes setScreen={setScreen} />
+                    }{screen === 5 &&
+                        <Tabela setScreen={setScreen} />
                     }
 
                 </span>

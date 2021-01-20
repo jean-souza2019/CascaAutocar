@@ -9,10 +9,10 @@
 }
 
 .btnEdit {
-    margin-top: 6px;
+    /* margin-top: 6px; */
     width: 20px !important;
-    vertical-align: middle;
-    display: table-cell;
+    /* vertical-align: middle; */
+    /* display: table-cell; */
 }
 
 .btnEdit:hover {
@@ -21,11 +21,11 @@
 }
 
 .btnDel {
-    margin-top: 6px;
+    /* margin-top: 6px; */
     margin-left: 10px;
     width: 20px !important;
-    vertical-align: middle;
-    display: table-cell;
+    /* vertical-align: middle; */
+    /* display: table-cell; */
 }
 
 .btnDel:hover {

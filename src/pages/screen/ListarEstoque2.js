@@ -11,8 +11,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Firebase from '../../services/FirebaseConnect'
 
-import CriarCliente from './CriarCliente'
-import EditarCliente from './EditarCliente'
+import CriarProduto from './CriarProduto'
+// import EditarProduto from './EditarProduto'
 
 
 
@@ -23,7 +23,7 @@ import '../../assets/css/client.css'
 
 
 
-export default function ListarClientes(props) {
+export default function ListarEstoque2(props) {
 
     const [lista, setLista] = useState([])
     const [screen, setScreen] = useState(0)
@@ -34,7 +34,7 @@ export default function ListarClientes(props) {
 
         Firebase
             .database()
-            .ref(`/Cadastros`)
+            .ref(`/Estoque`)
             .on('value', snapchot => {
                 if (snapchot.val()) {
                     // converter objetos em listas
@@ -55,7 +55,7 @@ export default function ListarClientes(props) {
         console.log(item)
         Firebase
             .database()
-            .ref(`/Cadastros/${item.id}`)
+            .ref(`/Estoque/${item.id}`)
             .remove()
     }
     
@@ -63,7 +63,7 @@ export default function ListarClientes(props) {
         console.log(item)
         Firebase
             .database()
-            .ref(`/Cadastros/${item.id}`)
+            .ref(`/Estoque/${item.id}`)
             .set(data)
     }
 
@@ -79,10 +79,10 @@ export default function ListarClientes(props) {
                 <Grid container spacing={1} >
                     <Grid item sm={12} xs={12}>
                         <div className="corPadrao1" style={{ marginTop: '10px', marginBottom: '10px', fontSize: '30px', fontFamily: 'DejaVu Sans Mono, monospace', color: '#3f51b5', textShadow: '0 0 1px #242c58' }}>
-                            Clientes Cadastrados
+                            Estoque
                         </div>
                         <div style={{ fontSize: '30px', fontFamily: 'DejaVu Sans Mono, monospace', color: '#3f51b5', textAlign: 'right' }}>
-                            <Button className="BtnCli" onClick={() => setScreen(1)} variant="contained">Criar Novo</Button>
+                            <Button className="BtnCli" onClick={() => setScreen(1)} variant="contained">Adicionar</Button>
 
                         </div>
                     </Grid>
@@ -91,13 +91,10 @@ export default function ListarClientes(props) {
                             <Table aria-label="simple table">
                                 <TableHead>
                                     <TableRow className="corPadrao">
-                                        <TableCell style={{ color: '#fff' }}>Nome</TableCell>
-                                        <TableCell style={{ color: '#fff' }} align="center">CPF</TableCell>
-                                        <TableCell style={{ color: '#fff' }} align="center">Cidade</TableCell>
-                                        <TableCell style={{ color: '#fff' }} align="center">Bairro</TableCell>
-                                        <TableCell style={{ color: '#fff' }} align="center">Telefone</TableCell>
-                                        <TableCell style={{ color: '#fff' }} align="center">E-mail</TableCell>
-                                        <TableCell style={{ color: '#fff' }} align="center">Veiculo</TableCell>
+                                        <TableCell style={{ color: '#fff' }}>Descrição</TableCell>
+                                        <TableCell style={{ color: '#fff' }} align="center">Endereçamento</TableCell>
+                                        <TableCell style={{ color: '#fff' }} align="center">Quantidade</TableCell>
+                                        <TableCell style={{ color: '#fff' }} align="center">Valor</TableCell>
                                         <TableCell style={{ color: '#fff' }} align="center">Opções</TableCell>
                                     </TableRow>
                                 </TableHead>
@@ -105,15 +102,13 @@ export default function ListarClientes(props) {
                                     {lista.map((item, key) => {
                                         return <TableRow key={key}>
                                             <TableCell component="th" scope="row">
-                                                {item.nome}
+                                                {item.descricao}
                                             </TableCell>
-                                            <TableCell align="Center">{item.cpf}</TableCell>
-                                            <TableCell align="Center">{item.cidade}</TableCell>
-                                            <TableCell align="Center">{item.bairro}</TableCell>
-                                            <TableCell align="Center">{item.telefone}</TableCell>
-                                            <TableCell align="Center">{item.email}</TableCell>
-                                            <TableCell align="Center">{item.veiculo}</TableCell>
-                                            <TableCell align="Center"><Edit className="btnEdit" onClick={() => setScreen(2)} /><DeleteForever className="btnDel" onClick={() => Excluir(item)} /></TableCell>        
+                                            <TableCell align="center">{item.enderecamento}</TableCell>
+                                            <TableCell align="center">{item.quantidade}</TableCell>
+                                            <TableCell align="center">{item.valor}</TableCell>
+                                            <Edit className="btnEdit" />
+                                            <DeleteForever className="btnDel" onClick={() => Excluir(item)}/>
                                         </TableRow>
                                     }
                                     )}
@@ -127,11 +122,11 @@ export default function ListarClientes(props) {
             }
 
             {screen === 1 &&
-                <CriarCliente setScreen={setScreen} />
+                <CriarProduto setScreen={setScreen} />
             }
-            {screen === 2 &&
-                <EditarCliente setScreen={setScreen} />
-            }
+            {/* {screen === 2 &&
+                <EditarProduto setScreen={setScreen} />
+            } */}
 
 
         </span>

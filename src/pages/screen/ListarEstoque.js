@@ -95,20 +95,17 @@ export default function ListarEstoque(props) {
                                         <TableCell style={{ color: '#fff' }} align="center">Endereçamento</TableCell>
                                         <TableCell style={{ color: '#fff' }} align="center">Quantidade</TableCell>
                                         <TableCell style={{ color: '#fff' }} align="center">Valor</TableCell>
-                                        <TableCell style={{ color: '#fff' }} align="center">Opções</TableCell>
+                                        <TableCell style={{ color: '#fff',width:'10%' }} align="center">Opções</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
                                     {lista.map((item, key) => {
                                         return <TableRow key={key}>
-                                            <TableCell component="th" scope="row">
-                                                {item.descricao}
-                                            </TableCell>
+                                            <TableCell component="th" scope="row">{item.descricao}</TableCell>
                                             <TableCell align="center">{item.enderecamento}</TableCell>
                                             <TableCell align="center">{item.quantidade}</TableCell>
                                             <TableCell align="center">{item.valor}</TableCell>
-                                            <Edit className="btnEdit" />
-                                            <DeleteForever className="btnDel" onClick={() => Excluir(item)}/>
+                                            <TableCell align="center"><Edit className="btnEdit" /><DeleteForever className="btnDel" onClick={() => Excluir(item)} /></TableCell>
                                         </TableRow>
                                     }
                                     )}

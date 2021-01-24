@@ -82,7 +82,7 @@ export default function ListarClientes(props) {
                             Clientes Cadastrados
                         </div>
                         <div style={{ fontSize: '30px', fontFamily: 'DejaVu Sans Mono, monospace', color: '#3f51b5', textAlign: 'right' }}>
-                            <Button className="BtnCli" onClick={() => setScreen(1)} variant="contained">Criar Novo</Button>
+                            <Button className="BtnCli" onClick={() => setScreen(1)} variant="contained">Incluir</Button>
 
                         </div>
                     </Grid>

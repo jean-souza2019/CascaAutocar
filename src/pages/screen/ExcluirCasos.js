@@ -48,7 +48,7 @@ export default function ExcluirCasos(props) {
         <Grid container spacing={1} >
             <Grid item sm={12} xs={12}>
                 <div style={{ marginTop: '10px', marginBottom: '20px', 'fontSize': '30px', 'fontFamily': 'DejaVu Sans Mono, monospace', 'color': '#3f51b5', textShadow: '0 0 1px #242c58' }}>
-                    Excluir Casos
+                   Orçamentos
                 </div>
             </Grid>
             <Grid item sm={12} xs={12}>
@@ -56,12 +56,12 @@ export default function ExcluirCasos(props) {
                     <Table aria-label="simple table">
                         <TableHead>
                             <TableRow style={{ backgroundColor: '#3f51b5' }}>
-                                <TableCell style={{ color: '#fff' }}>Ocorrencia</TableCell>
-                                <TableCell style={{ color: '#fff' }} align="right">Data</TableCell>
-                                <TableCell style={{ color: '#fff' }} align="right">Cep</TableCell>
-                                <TableCell style={{ color: '#fff' }} align="right">Cliente</TableCell>
-                                <TableCell style={{ color: '#fff' }} align="right">Telefone</TableCell>
-                                <TableCell style={{ color: '#fff' }} align="right">E-mail</TableCell>
+                                <TableCell style={{ color: '#fff' }}>Título</TableCell>
+                                <TableCell style={{ color: '#fff' }} align="Center">Data</TableCell>
+                                <TableCell style={{ color: '#fff' }} align="Center">Cep</TableCell>
+                                <TableCell style={{ color: '#fff' }} align="Center">Cliente</TableCell>
+                                <TableCell style={{ color: '#fff' }} align="Center">Telefone</TableCell>
+                                <TableCell style={{ color: '#fff' }} align="Center">E-mail</TableCell>
                                 <TableCell style={{ color: '#fff', height: '30px' }} align="center">Descrição</TableCell>
                                 <TableCell style={{ color: '#fff', height: '30px' }} align="center">Opções</TableCell>
                             </TableRow>
@@ -72,12 +72,12 @@ export default function ExcluirCasos(props) {
                                     <TableCell component="th" scope="row">
                                         {item.ocorrencia}
                                     </TableCell>
-                                    <TableCell align="right">{item.data}</TableCell>
-                                    <TableCell align="right">{item.cep}</TableCell>
-                                    <TableCell align="right">{item.cliente}</TableCell>
-                                    <TableCell align="right">{item.telefone}</TableCell>
-                                    <TableCell align="right">{item.email}</TableCell>
-                                    <TableCell align="right">{item.descricao}</TableCell>
+                                    <TableCell align="Center">{item.data}</TableCell>
+                                    <TableCell align="Center">{item.cep}</TableCell>
+                                    <TableCell align="Center">{item.cliente}</TableCell>
+                                    <TableCell align="Center">{item.telefone}</TableCell>
+                                    <TableCell align="Center">{item.email}</TableCell>
+                                    <TableCell align="Center">{item.descricao}</TableCell>
                                     <Button variant="outlined" onClick={() => Excluir(item)} style={{ marginLeft: '5px', backgroundColor: 'red', color: '#fff' }} > Excluir </Button>
 
                                 </TableRow>

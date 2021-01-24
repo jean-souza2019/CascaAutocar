@@ -44,7 +44,7 @@ export default function Menu() {
                     <Button onClick={() => setScreen(2)} className="BtnMenu" variant="contained" startIcon={<Assignment />}>Ordem Serviço</Button>
                     <Button onClick={() => setScreen(3)} className="BtnMenu" variant="contained" startIcon={<ShoppingCart />}>Estoque</Button>
                     <Button onClick={() => setScreen(4)} className="BtnMenu" variant="contained" startIcon={<Contacts />}>Clientes</Button>
-                    <Button onClick={() => setScreen(5)} className="BtnMenu" variant="contained" startIcon={<Contacts />}>Tabela</Button>
+                    {/* <Button onClick={() => setScreen(5)} className="BtnMenu" variant="contained" startIcon={<Contacts />}>Tabela</Button> */}
                 </span>
                 <span style={{ textAlign: 'center', float: 'left', width: '80%' }}>
 

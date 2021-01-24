@@ -55,11 +55,11 @@ export default function IncluirCaso(props) {
         <Grid container spacing={1} >
             <Grid item sm={12} xs={12}>
                 <div style={{ marginTop: '10px', marginBottom: '20px', fontSize: '30px', fontFamily: 'DejaVu Sans Mono, monospace', 'color': '#3f51b5', textShadow: '0 0 1px #242c58' }}>
-                    Incluir Novo Caso
+                    Orçamento
                 </div>
             </Grid>
             <Grid item sm={10} xs={12}>
-                <TextField value={ocorrencia} onChange={(e) => setOcorrencia(e.target.value)} label="Titulo Ocorrencia" variant="outlined"  size="small" type="email" style={{ width: "100%", marginBottom: 10, marginRight: '10px' }} />
+                <TextField value={ocorrencia} onChange={(e) => setOcorrencia(e.target.value)} label="Título" variant="outlined"  size="small" type="email" style={{ width: "100%", marginBottom: 10, marginRight: '10px' }} />
                 <TextField value={data} onChange={(e) => setData(e.target.value)} type="date" variant="outlined" size="small" style={{ width: "200px", marginBottom: 10 }} />
                 <TextField value={cep} onChange={(e) => setCep(e.target.value)} label="Cep" variant="outlined" size="small" type="number" style={{ marginLeft : '25px', width: "300px", marginBottom: 10 }} />
                 <hr style={{'color': '#3f51b5'}}/>

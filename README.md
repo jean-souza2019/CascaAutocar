@@ -3,6 +3,9 @@
 ## Objetivo: Controle de estoque/Ordens de Serviço/Cadastro de clientes/Emissão de OS/Cadastro de Produtos
 ## Contato: jiamarcos@outlook.com.br
 
+
+# Status: Em desenvolvimento
+
 Node JS
 React JS
 

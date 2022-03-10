@@ -56,6 +56,21 @@
     float: right;
 }
 
+.BtnMenu {
+    width: 100% !important;
+    text-align: center !important;
+    background-color: #0361a5 !important;
+    height: 50px !important;
+    color: white !important;
+    font-size: 12px !important;
+    margin-bottom: 5px !important;
+}
+
+.BtnMenu:hover {
+    background-color: white !important;
+    color: #0361a5 !important;
+}
+
 @media (max-width: 715px) {
     .navmenu {
         display: none;

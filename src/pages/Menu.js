@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 
-import { MenuItem, } from '@material-ui/core';
+import { MenuItem, Button } from '@material-ui/core';
 // import { Button, Grid, Paper, MenuList } from '@material-ui/core';
 // import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 // import { useHistory } from "react-router-dom";
 // import Firebase from '../services/FirebaseConnect'
 // import logoPrn from '../assets/img/logoPrn.png'
+
+import PeopleRoundedIco from '@material-ui/icons/PeopleRounded';
 
 import IncluirCaso from './screen/IncluirCaso'
 import ExcluirCasos from './screen/ExcluirCasos'
@@ -27,16 +29,15 @@ export default function Menu() {
         <>
             <Header />
             <div style={{ width: '100%', display: 'block' }}>
-                <div className="navmenu">
+                <span className="navmenu">
                     <div style={{ backgroundColor: '#035692', height: '20px' }}></div>
-                    <MenuItem style={itensMenu} onClick={() => setScreen(0)} >Pagina Inicial</MenuItem>
-                    <MenuItem style={itensMenu} onClick={() => setScreen(1)}>Incluir Caso</MenuItem>
-                    <MenuItem style={itensMenu} onClick={() => setScreen(2)}>Excluir Caso</MenuItem>
-                    <MenuItem style={itensMenu} onClick={() => setScreen(3)}>Listar Casos</MenuItem>
-                    <div style={{ 'height': '150px' }}></div>
-
-                </div>
-                <div style={{ textAlign: 'center', float: 'left' }}>
+                    <Button onClick={() => setScreen(0)} className="BtnMenu" variant="contained" startIcon={<PeopleRoundedIco />}>Inicio</Button>
+                    <Button onClick={() => setScreen(1)} className="BtnMenu" variant="contained" startIcon={<PeopleRoundedIco />}>Solicitação </Button>
+                    <Button onClick={() => setScreen(2)} className="BtnMenu" variant="contained" startIcon={<PeopleRoundedIco />}>Ordem</Button>
+                    <Button onClick={() => setScreen(3)} className="BtnMenu" variant="contained" startIcon={<PeopleRoundedIco />}>Estoque</Button>
+                    <Button onClick={() => setScreen(4)} className="BtnMenu" variant="contained" startIcon={<PeopleRoundedIco />}>Clientes</Button>
+                </span>
+                <span style={{ textAlign: 'center', float: 'left' }}>
 
                     {screen === 0 &&
                         <>
@@ -66,7 +67,7 @@ export default function Menu() {
                         <ListarRecados setScreen={setScreen} />
                     }
 
-                </div>
+                </span>
             </div>
         </>
     )
